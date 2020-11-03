@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+{{ form_start(form) }}
+<div class="card">
+    <div class="card-title ">
+        Formulaire création pizza
+    </div>
+    <div class="card-content">
+        {{ form_widget(form.slices,{'attr':{'class':'form-control'}}) }}
+        <br>
+        {{ form_widget(form.eatenBy,{'attr':{'class':'select-dropdown'}}) }}
+    </div>
+</div>
+    <input type="submit" value="confirm">
+    {{ form_end(form) }}
+{% endblock %}
+
+
+
+
