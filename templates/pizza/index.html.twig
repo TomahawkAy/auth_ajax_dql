@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+Input the name of the owner    <input id="name-input" type="text"><br>
+    <button type="btn" onclick="searchPizzaByName()">Valider</button>
+{% endblock %}
+{% block externalJs %}
+    <script>
+        function searchPizzaByName(){
+            const name =$('#name-input');
+            $.ajax({
+                url:"{{ path('pizza_search') }}",
+                method: "GET",
+                dataType: 'json',
+                data : {name:name.val()},
+                success: (e) => {
+                    console.log(e);
+                },
+                error : (f) => {
+                    console.log(f);
+                }
+            })
+        }
+    </script>
+{% endblock %}
